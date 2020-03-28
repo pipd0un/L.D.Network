@@ -185,7 +185,7 @@ void analizer(blocks *a , blocks *b ,blocks *c)
 			{
 				if((b+i)->x1 == (c+j)->x2 && (b+i)->y1 == (c+j)->y2)
 				{
-					// müþteriye baðlý hattý bulduk.
+					// found the line id which is connected to customer.
 					ret = j;
 					printf("\n Line %d",(c+j)->id);
 					line2line(ret,c);
