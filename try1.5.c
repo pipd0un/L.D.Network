@@ -43,7 +43,7 @@ int main() {
 	block3 = malloc( sizeof(blocks) );
 	
 	FILE *fp;
-	fp = fopen("IEEE_test_system_12.txt","r");
+	fp = fopen("/data/IEEE_test_system_12.txt","r");
 	
 	// block's size calculator and memory allocater ;
 	
@@ -86,7 +86,7 @@ int main() {
 	block3 = realloc(block3 , block3->size * sizeof(blocks));
     fclose(fp);
     line == NULL;
-    fp = fopen("IEEE_test_system_12.txt","r");
+    fp = fopen("/data/IEEE_test_system_12.txt","r");
     char *szTempString;
     while(fgets(line,60,fp))
 	{
@@ -185,7 +185,7 @@ void analizer(blocks *a , blocks *b ,blocks *c)
 			{
 				if((b+i)->x1 == (c+j)->x2 && (b+i)->y1 == (c+j)->y2)
 				{
-					// müşteriye bağlı hattı bulduk.
+					// mÃ¼Ã¾teriye baÃ°lÃ½ hattÃ½ bulduk.
 					ret = j;
 					printf("\n Line %d",(c+j)->id);
 					line2line(ret,c);
