@@ -43,7 +43,7 @@ int main() {
 	block3 = malloc( sizeof(blocks) );
 	
 	FILE *fp;
-	fp = fopen("/data/IEEE_test_system_12.txt","r");
+	fp = fopen("data/IEEE_test_system_12.txt","r");
 	
 	// block's size calculator and memory allocater ;
 	
@@ -86,7 +86,7 @@ int main() {
 	block3 = realloc(block3 , block3->size * sizeof(blocks));
     fclose(fp);
     line == NULL;
-    fp = fopen("/data/IEEE_test_system_12.txt","r");
+    fp = fopen("data/IEEE_test_system_12.txt","r");
     char *szTempString;
     while(fgets(line,60,fp))
 	{
