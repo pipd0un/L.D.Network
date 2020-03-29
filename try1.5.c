@@ -22,7 +22,7 @@ void randUp(blocks *c);
 void randCust(blocks *b);
 void linelen(blocks *a);
 void analizer(blocks *a , blocks *b , blocks *c);
-void line2line(int id,blocks *c);
+int line2line(int id,blocks *c);
 
 int main() {  
 	
@@ -174,6 +174,7 @@ void analizer(blocks *a , blocks *b ,blocks *c)
 	int i;
 	int j;
 	int ret;
+	int cont;
 	printf("\nEnter customer's id to analyse its line route : ");
 	scanf("%d",&id);
 	system("cls");
@@ -185,17 +186,21 @@ void analizer(blocks *a , blocks *b ,blocks *c)
 			{
 				if((b+i)->x1 == (c+j)->x2 && (b+i)->y1 == (c+j)->y2)
 				{
-					// found the line id which is connected to customer.
+					// found the line that connected to customer.
 					ret = j;
 					printf("\n Line %d",(c+j)->id);
-					line2line(ret,c);
+					cont = line2line(ret,c);
 				}
 			}
 		}
 	}
+	while( !((c+cont)->x1 == a->x1 && (c+cont)->y1 == a->y1))
+	{
+		line2line(ret,c);
+	}
 	printf("\n Uploader Center %d",a->id);
 }
-void line2line(int id,blocks *c)
+int line2line(int id,blocks *c)
 {
 	int i;
 	int j;
@@ -206,9 +211,10 @@ void line2line(int id,blocks *c)
 		{
 			ret = j;
 			printf("\n Line %d",(c+j)->id);
-			line2line(ret,c);
 		}
 	}
+	line2line(ret,c);
+	return ret;
 }
 void linelen(blocks *a)
 {
