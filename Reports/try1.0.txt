@@ -1,0 +1,8 @@
+---- 1.0 Beta ----
+* Still it has 3 structs and 3 pointer objects in it .
+* It can truely calculates line,customer and uploader element numbers.
+* It allocates memory for each objects with their sizes with being wrong..
+* It writes values from text but can not put them into struct truely .
+
+** It calculates line size wrong !
+** It can read the text file completely true for the first time !

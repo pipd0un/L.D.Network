@@ -1,0 +1,9 @@
+---- 1.7 ----
+
+* Added draft libs to control 
+* Creating output text feature (optional)
+* Can analyze lines .
+
+** More useful userfriendly user menu :)
+
+*** Has text writing issues .. 

@@ -1,0 +1,12 @@
+---- 1.2 (Alpha) ----
+* Completely refactored the source code.
+* Have made just 1 struct.
+* Have made an object for each blocks (uploader,customer and line).
+* It allows true memory allocating within wrong adresses .
+* It reads all values from text and put them into completely wrong adresses.
+
+** It has printing code lines in it for the first time and all of information of text file but doesnt works.
+** Tried to make functions which can calculate line length but not finished.
+** I got extremely bored so I though teachers may be bored so decided to make a credit for my homework.
+
+*** source code prints and returns nothing , completely doesnt work. :)

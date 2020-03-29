@@ -1,0 +1,4 @@
+---- 1.6 ----
+
+* void analizer () fixed . It works great
+* added line2line() to shrink code lines. 

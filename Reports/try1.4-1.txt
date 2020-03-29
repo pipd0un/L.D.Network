@@ -1,0 +1,15 @@
+---- rework 1.4-1 ----
+
+* completely redesigned and refactored all logical equations.
+	1)calculation of object size lines changed.
+	2)size assignment style changed ( pointer to int-array)
+	3)changed all objects's memory allocation lines .
+	4)other loops fixed.
+
+* first index jumping issue fixed.
+* accessing back to value which is placed in struct from txt file is provided well.
+* started to make other functions at this point.
+
+** Added a function which can calculate Line length in it.
+
+

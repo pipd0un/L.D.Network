@@ -1,0 +1,14 @@
+---- RELEASE 1.5 ----
+
+* first working version.
+* It has no issues or debug problem.
+* It has all line and customer information gathering functions
+	Line number , length..
+	cust. number by types ..
+	random line , customer information by id
+	uploader center information by id
+
+** It still has not writing to text file function.
+** Can not analyse lines.
+** Doesnt content line analysing functions or derivatives.
+   

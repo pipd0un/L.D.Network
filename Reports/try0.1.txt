@@ -1,0 +1,7 @@
+---- 0.1 (alpha) ----
+* has started to write something 
+* tried to make arrays in struct 
+  altough it comes nonsense ..
+* have learnt all struct subject at start 
+* have learnt all pointers subject at start 
+* try0.1.c file has removed .

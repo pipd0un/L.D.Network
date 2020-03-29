@@ -1,0 +1,12 @@
+---- post 1.2.8 ----
+* Has removed functions but named credit().
+* refactored memory allocation lines.
+* refactored logical equation lines.
+* completely nonsense logical style 
+  for exp. temp starts at "1" . 
+           allocating wrong adress "(block2+(temp*sizeof(blocks)))->id"
+* find an issue about calculating size of objects but couldnt fix.
+
+** completely true reading.
+** completely true printing information but first indexes are jumped.
+** also it has completely wrong adress placement with pointers.

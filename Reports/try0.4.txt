@@ -1,0 +1,7 @@
+---- 0.4 (alpha) ----
+* Have made 3 struct and increased them for line project 
+* tried to calculate max size of ABC_test_system_xxx.txt
+  files contents.
+* Have made 3 object for each structs .
+* Only can calculate total size of text file .
+* even the total size calculation is wrong !.
