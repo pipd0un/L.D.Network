@@ -22,7 +22,7 @@ void randUp(blocks *c);
 void randCust(blocks *b);
 void linelen(blocks *a);
 void analizer(blocks *a , blocks *b , blocks *c);
-void line2line(char oName[],FILE *text ,int id,blocks *c,blocks *a);
+void line2line(int id,blocks *c,blocks *a);
 
 int main() {  
 	
@@ -36,49 +36,14 @@ int main() {
 	
 	int sizer=0;
 	int sizes[3];
-	int fileCheck;
-	char fileName[50];
-	printf("Which file you want to check ? (1,2,3,4,5,6)");
-	puts("");
-	printf("\n(1) IEEE_test_system_12.txt");
-	printf("\n(2) IEEE_test_system_30.txt");
-	printf("\n(3) IEEE_test_system_33.txt");
-	printf("\n(4) IEEE_test_system_69.txt");
-	printf("\n(5) Realistic_system.txt");
-	printf("\n(6) test_system.txt");
-	printf("\n : ");
 	
-	scanf("%d",&fileCheck);
-	if(fileCheck == 1)
-	{
-		strcpy(fileName,"data/IEEE_test_system_12.txt");
-	}
-	else if(fileCheck == 2)
-	{
-		strcpy(fileName,"data/IEEE_test_system_30.txt");
-	}
-	else if(fileCheck == 3)
-	{
-		strcpy(fileName,"data/IEEE_test_system_33.txt");
-	}
-	else if(fileCheck == 4)
-	{
-		strcpy(fileName,"data/IEEE_test_system_69.txt");
-	}
-	else if(fileCheck == 5)
-	{
-	strcpy(fileName,"data/Realistic_system.txt");
-	}
-	else if(fileCheck == 6)
-	{
-		strcpy(fileName,"data/test_system.txt");
-	}	
+	
 	block1 = malloc( sizeof(blocks) );
 	block2 = malloc( sizeof(blocks) );
 	block3 = malloc( sizeof(blocks) );
 	
 	FILE *fp;
-	fp = fopen(fileName,"r");
+	fp = fopen("data/IEEE_test_system_12.txt","r");
 	
 	// block's size calculator and memory allocater ;
 	
@@ -121,7 +86,7 @@ int main() {
 	block3 = realloc(block3 , block3->size * sizeof(blocks));
     fclose(fp);
     line == NULL;
-    fp = fopen(fileName,"r");
+    fp = fopen("data/IEEE_test_system_12.txt","r");
     char *szTempString;
     while(fgets(line,60,fp))
 	{
@@ -147,6 +112,7 @@ int main() {
                 index = 0;
         }
     }
+
 	 //USER MENU 
 	int broken = 0, selection;
 	/*
@@ -167,7 +133,6 @@ int main() {
 		} 
 	}
 	*/
-	system("cls");
 	printf("\n****************************************");
 	printf("\n*****Welcome To City Draft Center !*****");
 	printf("\n****************************************");
@@ -195,22 +160,7 @@ int main() {
 					break;		
 			}
 	}
-	while(1)
-	{
-		char ans;
-		printf("\n  Wanna Analyse the draft ? (Y/N)");
-		scanf("%s",&ans);
-		if( ans == 'Y' || ans == 'y')
-		{
-			analizer(block1,block2,block3);
-			break;
-		}
-		else if (ans == 'n' || ans == 'N')
-		{
-			puts("\n Okay !");
-			break;
-		}
-	}
+	analizer(block1,block2,block3);
 	printf("\n See ya later ! ");
 	free(block1);
 	free(block2);
@@ -225,17 +175,8 @@ void analizer(blocks *a , blocks *b ,blocks *c)
 	int ret;
 	int cont;
 	char check[20];
-	char oputName[50];
-	char oput;
-	FILE * outp;
 	printf("\nEnter customer's id to analyse its line route : ");
 	scanf("%d",&id);
-	system("cls");
-	printf("\nPlease write your output text name with .txt !");
-	printf("\n -> ");
-	scanf("%s",oputName);
-	
-	
 	if((b+(id-1))->tip == 1)
 	{
 		strcpy(check,"Dwelling");
@@ -249,10 +190,7 @@ void analizer(blocks *a , blocks *b ,blocks *c)
 		strcpy(check,"Industrial");
 	}
 	system("cls");
-	outp = fopen(oputName,"a+");
 	printf("\n %s %d",check,(b+(id-1))->id);
-	fprintf(outp,"%s %d\n",check,(b+(id-1))->id);
-	fclose(outp);
 	for(i =0; i < b->size ;i++)
 	{
 		if( (b+i)->id == id)
@@ -262,46 +200,33 @@ void analizer(blocks *a , blocks *b ,blocks *c)
 				if((b+i)->x1 == (c+j)->x2 && (b+i)->y1 == (c+j)->y2)
 				{
 					// found the line that connected to customer.
-					outp = fopen(oputName,"a+");
 					ret = j;
 					printf("\n Line %d",(c+j)->id);
-					fprintf(outp,"\n Line %d",(c+j)->id);
-					line2line(oputName,outp,ret,c,a);
-					fclose(outp);
+					line2line(ret,c,a);
 				}
 			}
 		}
 	}
-	puts("\n\nAnalyzing has done ...");
-	printf("\nTake a look in %s",oputName);
 }
-void line2line(char oName[],FILE *text ,int id,blocks *c,blocks *a)
+void line2line(int id,blocks *c,blocks *a)
 {
 	int i;
 	int j;
 	int ret;
-	
 	for (i=0;i<c->size;i++)
 	{
 		if((c+id)->x1 == a->x1 && (c+id)->y1 == a->y1)
 		{
-			text = fopen(oName,"a+");
 			printf("\n Uploader Center %d",a->id);
-			fprintf(text,"\n Uploader Center %d",a->id);
-			fclose(text);
 			break;
 		}
 		else if((c+id)->x1 == (c+i)->x2 && (c+id)->y1 == (c+i)->y2)
 		{
-			text = fopen(oName,"a+");
 			ret = i;
 			printf("\n Line %d",(c+i)->id);
-			fprintf(text,"\n Line %d",(c+i)->id);
-			line2line(oName,text,ret,c,a);
-			fclose(text);
+			line2line(ret,c,a);
 		}
 	}
-	
 }
 void linelen(blocks *a)
 {
